@@ -40,7 +40,7 @@ def get_prediction():
     
 
     #load trained ML model
-    with open('model/model.pkl','rb') as obj:
+    with open('model.pkl','rb') as obj:
         model = pickle.load(obj)
 
     #make predictions on user data.
