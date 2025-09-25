@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birth Weight Estimator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #89CFF0, #FFB6C1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff85c1;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 25px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Let's Estimate the Weight!</h1>
+        <form action="/predict" method="POST">
+            <label for="gestation">Gestation, in Days</label>
+            <input name="gestation" type="number" required>
+
+            <label for="parity">Parity, 1 or 0</label>
+            <input name="parity" type="number" required>
+
+            <label for="age">Age in Years</label>
+            <input name="age" type="number" required>
+
+            <label for="height">Height in inches</label>
+            <input name="height" type="number" required>
+
+            <label for="weight">Weight in Ounces</label>
+            <input name="weight" type="number" required>
+
+            <label for="smoke">Smoke, 0 or 1</label>
+            <input name="smoke" type="number" required>
+
+            <button type="submit">Estimate the birth weight of your child!</button>
+        </form>
+
+        <h3>Estimated weight is: {{prediction}} Ounces</h3>
+    </div>
+</body>
+</html>
